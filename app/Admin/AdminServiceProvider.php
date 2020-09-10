@@ -11,6 +11,7 @@ class AdminServiceProvider extends ServiceProvider
     protected $middlewareMap = [
         'admin.permission' => \App\Admin\Middleware\AdminPermission::class,
         'admin.auth' => \App\Admin\Middleware\Authenticate::class,
+        'admin.log' => \App\Admin\Middleware\AdminLog::class,
     ];
 
     protected $middlewareGroups = [

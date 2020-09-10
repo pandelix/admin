@@ -19,6 +19,7 @@ Route::prefix('admin-api')
 
         Route::middleware([
             'admin.auth',
+            'admin.log',
             'admin.permission',
         ])->group(function () {
             Route::post('auth/logout', [C\Auth\LoginController::class, 'logout'])->name('logout');
@@ -72,5 +73,8 @@ Route::prefix('admin-api')
                 ->except(['store', 'show', 'create']);
             Route::put('system-media', [C\SystemMediaController::class, 'batchUpdate'])->name('system-media.batch.update');
             Route::delete('system-media', [C\SystemMediaController::class, 'batchDestroy'])->name('system-media.batch.destroy');
+
+            Route::resource('admin-logs', C\AdminLogController::class)->only(['index', 'destroy']);
+            Route::delete('admin-logs', [C\AdminLogController::class, 'batchDestroy'])->name('admin-log.batch.destroy');
         });
     });

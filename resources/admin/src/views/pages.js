@@ -24,4 +24,6 @@ export default {
   'vue-routers/:id(\\d+)/edit': () => import('@v/vue-routers/Form'),
 
   'system-media': () => import('@v/system-media/Index'),
+
+  'admin-logs': () => import('@v/admin-logs/Index'),
 }
