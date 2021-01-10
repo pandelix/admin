@@ -24,4 +24,12 @@ export default {
   'vue-routers/:id(\\d+)/edit': () => import('@v/vue-routers/Form'),
 
   'system-media': () => import('@v/system-media/Index'),
+
+
+  'rule': () => import('@v/rule/Index'),
+  'rule/create': () => import('@v/rule/Form'),
+  'rule/:id(\\d+)/edit': () => import('@v/rule/Form'),
+
+  'certificates': () => import('@v/certificates/Index'),
+
 }
