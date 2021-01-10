@@ -25,11 +25,27 @@ export default {
 
   'system-media': () => import('@v/system-media/Index'),
 
-
   'rule': () => import('@v/rule/Index'),
   'rule/create': () => import('@v/rule/Form'),
   'rule/:id(\\d+)/edit': () => import('@v/rule/Form'),
 
-  'certificates': () => import('@v/certificates/Index'),
+  'certificate': () => import('@v/certificate/Index'),
+  'certificate/create': () => import('@v/certificate/Form'),
+  'certificate/:id(\\d+)/edit': () => import('@v/certificate/Form'),
+
+  'company': () => import('@v/company/Index'),
+  'company/create': () => import('@v/company/Form'),
+  'company/:id(\\d+)/edit': () => import('@v/company/Form'),
+  'company-type': () => import('@v/company/type/Index'),
+  'company-type/create': () => import('@v/company/type/Form'),
+  'company-type/:id(\\d+)/edit': () => import('@v/company/type/Form'),
+
+  'remind': () => import('@v/remind/Index'),
+  'remind/create': () => import('@v/remind/Form'),
+  'remind/:id(\\d+)/edit': () => import('@v/remind/Form'),
+
+  'type': () => import('@v/type/Index'),
+  'type/create': () => import('@v/type/Form'),
+  'type/:id(\\d+)/edit': () => import('@v/type/Form'),
 
 }

@@ -18,11 +18,11 @@ import LzForm from '@c/LzForm'
 import LzFormItem from '@c/LzForm/LzFormItem'
 import PageContent from '@c/PageContent'
 import {
-  createDictItem,
-  editDictItem,
-  storeDictItem,
-  updateDictItem,
-} from '@/api/dict_items'
+  createCompany,
+  editCompany,
+  storeCompany,
+  updateCompany,
+} from '@/api/company'
 
 export default {
   name: 'Form',
@@ -44,18 +44,18 @@ export default {
       let data
 
       if ($form.realEditMode) {
-        ({ data } = await editDictItem($form.resourceId))
+        ({ data } = await editCompany($form.resourceId))
       } else {
-        ({ data } = await createDictItem())
+        ({ data } = await createCompany())
       }
 
       return data
     },
     async onSubmit($form) {
       if ($form.realEditMode) {
-        await updateDictItem($form.resourceId, this.form)
+        await updateCompany($form.resourceId, this.form)
       } else {
-        await storeDictItem(this.form)
+        await storeCompany(this.form)
       }
     },
   },

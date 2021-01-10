@@ -18,11 +18,11 @@ import LzForm from '@c/LzForm'
 import LzFormItem from '@c/LzForm/LzFormItem'
 import PageContent from '@c/PageContent'
 import {
-  createCompany,
-  editCompany,
-  storeCompany,
-  updateCompany,
-} from '@/api/companies'
+  createRemind,
+  editRemind,
+  storeRemind,
+  updateRemind,
+} from '@/api/remind'
 
 export default {
   name: 'Form',
@@ -44,18 +44,18 @@ export default {
       let data
 
       if ($form.realEditMode) {
-        ({ data } = await editCompany($form.resourceId))
+        ({ data } = await editRemind($form.resourceId))
       } else {
-        ({ data } = await createCompany())
+        ({ data } = await createRemind())
       }
 
       return data
     },
     async onSubmit($form) {
       if ($form.realEditMode) {
-        await updateCompany($form.resourceId, this.form)
+        await updateRemind($form.resourceId, this.form)
       } else {
-        await storeCompany(this.form)
+        await storeRemind(this.form)
       }
     },
   },

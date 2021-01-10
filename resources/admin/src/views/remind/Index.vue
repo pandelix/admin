@@ -6,20 +6,20 @@
 
     <a-table
       row-key="id"
-      :data-source="dictItem"
+      :data-source="remind"
       bordered
       :scroll="{ x: 600 }"
       :pagination="false"
     >
       <a-table-column title="ID" data-index="id" :width="60"/>
       <a-table-column title="字段名" data-index="field_name"/>
-      <a-table-column title="添加时间" data-index="created_at" :width="180"/>
-      <a-table-column title="修改时间" data-index="updated_at" :width="180"/>
+      <a-table-column title="操作时间" data-index="updated_at" :width="180"/>
+      <a-table-column title="操作人" data-index="operator_name" :width="180"/>
       <a-table-column title="操作" :width="100">
         <template #default="record">
           <space>
-            <router-link :to="`/dict_items/${record.id}/edit`">编辑</router-link>
-            <lz-popconfirm :confirm="destroyDictItem(record.id)">
+            <router-link :to="`/remind/${record.id}/edit`">编辑</router-link>
+            <lz-popconfirm :confirm="destroyRemind(record.id)">
               <a class="error-color" href="javascript:void(0);">删除</a>
             </lz-popconfirm>
           </space>
@@ -37,9 +37,9 @@ import PageContent from '@c/PageContent'
 import SearchForm from '@c/SearchForm'
 import Space from '@c/Space'
 import {
-  destroyDictItem,
-  getDictItems,
-} from '@/api/dict_items'
+  destroyRemind,
+  getRemind,
+} from '@/api/remind'
 import { removeWhile } from '@/libs/utils'
 
 export default {
@@ -64,23 +64,23 @@ export default {
           label: '字段名',
         },
       ],
-      dictItem: [],
+      remind: [],
       page: null,
     }
   },
   methods: {
-    destroyDictItem(id) {
+    destroyRemind(id) {
       return async () => {
-        await destroyDictItem(id)
-        this.dictItem = removeWhile(this.dictItem, (i) => i.id === id)
+        await destroyRemind(id)
+        this.remind = removeWhile(this.remind, (i) => i.id === id)
       }
     },
   },
   watch: {
     $route: {
       async handler(newVal) {
-        const { data: { data, meta } } = await getDictItems(newVal.query)
-        this.dictItem = data
+        const { data: { data, meta } } = await getRemind(newVal.query)
+        this.remind = data
         this.page = meta
 
         this.$scrollResolve()

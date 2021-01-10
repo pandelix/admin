@@ -5,18 +5,17 @@ namespace App\Admin\Requests;
 use App\Admin\Requests\FormRequest;
 use Illuminate\Support\Arr;
 
-class DictItemRequest extends FormRequest
+class TypeRequest extends FormRequest
 {
     public function rules()
     {
         $rules = [
-            'field_name' => 'required',
+            'type_name' => 'required',
+            'simple_name' => '',
         ];
-
         if ($this->isMethod('put')) {
             $rules = Arr::only($rules, $this->keys());
         }
-
         return $rules;
     }
 

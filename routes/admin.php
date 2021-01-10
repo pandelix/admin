@@ -73,7 +73,14 @@ Route::prefix('admin-api')
             Route::put('system-media', [C\SystemMediaController::class, 'batchUpdate'])->name('system-media.batch.update');
             Route::delete('system-media', [C\SystemMediaController::class, 'batchDestroy'])->name('system-media.batch.destroy');
 
-
             Route::resource('rule', C\RuleController::class);
+
+            Route::resource('certificate', C\CertificateController::class);
+
+            Route::resource('company', C\CompanyController::class);
+
+            Route::resource('type', C\TypeController::class);
+
+            Route::resource('remind', C\RemindController::class);
         });
     });

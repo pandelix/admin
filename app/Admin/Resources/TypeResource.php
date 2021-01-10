@@ -4,7 +4,7 @@ namespace App\Admin\Resources;
 
 use App\Admin\Resources\JsonResource;
 
-class DictItemResource extends JsonResource
+class TypeResource extends JsonResource
 {
     public function toArray($request)
     {

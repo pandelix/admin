@@ -3,18 +3,18 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Controllers\Controller;
-use App\Admin\Filters\CertificateFilter;
 use App\Admin\Models\Certificate;
+use App\Admin\Models\Company;
+use App\Admin\Models\Type;
 use App\Admin\Requests\CertificateRequest;
 use App\Admin\Resources\CertificateResource;
 use Illuminate\Http\Request;
 
 class CertificateController extends Controller
 {
-    public function index(CertificateFilter $filter)
+    public function index()
     {
         $certificates = Certificate::query()
-            ->filter($filter)
             ->paginate();
 
         return $this->ok(CertificateResource::collection($certificates));
@@ -22,7 +22,15 @@ class CertificateController extends Controller
 
     public function create()
     {
-        return $this->ok();
+        return $this->ok($this->formData());
+    }
+
+    protected function formData()
+    {
+        return [
+            'types' => Type::query()->get(),
+            'companies' => Company::query()->get(),
+        ];
     }
 
     public function store(CertificateRequest $request)
@@ -35,7 +43,7 @@ class CertificateController extends Controller
 
     public function edit(Request $request, Certificate $certificate)
     {
-        return $this->ok(CertificateResource::make($certificate));
+        return $this->ok(CertificateResource::make($certificate)->additional($this->formData()));
     }
 
     public function update(CertificateRequest $request, Certificate $certificate)

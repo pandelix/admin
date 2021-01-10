@@ -3,7 +3,6 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Controllers\Controller;
-use App\Admin\Filters\RuleFilter;
 use App\Admin\Models\Rule;
 use App\Admin\Requests\RuleRequest;
 use App\Admin\Resources\RuleResource;
@@ -11,10 +10,9 @@ use Illuminate\Http\Request;
 
 class RuleController extends Controller
 {
-    public function index(RuleFilter $filter)
+    public function index()
     {
         $rules = Rule::query()
-//            ->filter($filter)
             ->paginate();
 
         return $this->ok(RuleResource::collection($rules));

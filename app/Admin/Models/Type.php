@@ -4,18 +4,17 @@ namespace App\Admin\Models;
 
 use App\Admin\Models\DyModel;
 
-class Rule extends DyModel
+class Type extends DyModel
 {
-    protected $table = 'dy_rule';
+    protected $table = 'dy_type';
 
     protected $fillable = [
-        'rule_name',
+        'type_category',
+        'type_name',
         'simple_name',
         'simple_pinyin',
-        'company_id',
-        'content',
-        'status',
-        'sort',
+        'is_can_edit',
         'remark',
     ];
+
 }

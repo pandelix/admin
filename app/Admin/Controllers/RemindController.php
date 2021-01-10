@@ -3,7 +3,6 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Controllers\Controller;
-use App\Admin\Filters\RemindFilter;
 use App\Admin\Models\Remind;
 use App\Admin\Requests\RemindRequest;
 use App\Admin\Resources\RemindResource;
@@ -11,10 +10,9 @@ use Illuminate\Http\Request;
 
 class RemindController extends Controller
 {
-    public function index(RemindFilter $filter)
+    public function index()
     {
         $reminds = Remind::query()
-            ->filter($filter)
             ->paginate();
 
         return $this->ok(RemindResource::collection($reminds));

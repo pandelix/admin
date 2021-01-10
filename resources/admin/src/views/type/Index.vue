@@ -6,7 +6,7 @@
 
     <a-table
       row-key="id"
-      :data-source="remind"
+      :data-source="type"
       bordered
       :scroll="{ x: 600 }"
       :pagination="false"
@@ -18,8 +18,8 @@
       <a-table-column title="操作" :width="100">
         <template #default="record">
           <space>
-            <router-link :to="`/reminds/${record.id}/edit`">编辑</router-link>
-            <lz-popconfirm :confirm="destroyRemind(record.id)">
+            <router-link :to="`/type/${record.id}/edit`">编辑</router-link>
+            <lz-popconfirm :confirm="destroyType(record.id)">
               <a class="error-color" href="javascript:void(0);">删除</a>
             </lz-popconfirm>
           </space>
@@ -37,9 +37,9 @@ import PageContent from '@c/PageContent'
 import SearchForm from '@c/SearchForm'
 import Space from '@c/Space'
 import {
-  destroyRemind,
-  getReminds,
-} from '@/api/reminds'
+  destroyType,
+  getType,
+} from '@/api/type'
 import { removeWhile } from '@/libs/utils'
 
 export default {
@@ -64,23 +64,23 @@ export default {
           label: '字段名',
         },
       ],
-      remind: [],
+      type: [],
       page: null,
     }
   },
   methods: {
-    destroyRemind(id) {
+    destroyType(id) {
       return async () => {
-        await destroyRemind(id)
-        this.remind = removeWhile(this.remind, (i) => i.id === id)
+        await destroyType(id)
+        this.type = removeWhile(this.type, (i) => i.id === id)
       }
     },
   },
   watch: {
     $route: {
       async handler(newVal) {
-        const { data: { data, meta } } = await getReminds(newVal.query)
-        this.remind = data
+        const { data: { data, meta } } = await getType(newVal.query)
+        this.type = data
         this.page = meta
 
         this.$scrollResolve()

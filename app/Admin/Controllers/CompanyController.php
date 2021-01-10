@@ -3,7 +3,6 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Controllers\Controller;
-use App\Admin\Filters\CompanyFilter;
 use App\Admin\Models\Company;
 use App\Admin\Requests\CompanyRequest;
 use App\Admin\Resources\CompanyResource;
@@ -11,10 +10,9 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    public function index(CompanyFilter $filter)
+    public function index()
     {
         $companys = Company::query()
-            ->filter($filter)
             ->paginate();
 
         return $this->ok(CompanyResource::collection($companys));

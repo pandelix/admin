@@ -14,8 +14,8 @@
       <a-table-column title="ID" data-index="id" :width="60"/>
       <a-table-column title="名称" data-index="rule_name"/>
       <a-table-column title="简称" data-index="simple_name"/>
-      <a-table-column title="操作时间" data-index="update_time_text" :width="180"/>
-      <a-table-column title="操作人" data-index="update_user_name" :width="180"/>
+      <a-table-column title="操作时间" data-index="updated_at" :width="180"/>
+      <a-table-column title="操作人" data-index="operator_name" :width="180"/>
       <a-table-column title="操作" :width="100">
         <template #default="record">
           <space>

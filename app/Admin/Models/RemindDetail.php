@@ -4,9 +4,9 @@ namespace App\Admin\Models;
 
 use App\Admin\Models\DyModel;
 
-class Remind extends DyModel
+class RemindDetail extends DyModel
 {
-    protected $table = 'dy_remind';
+    protected $table = 'dy_remind_detail';
 
     protected $fillable = [
         'certificate_id',
