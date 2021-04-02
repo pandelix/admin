@@ -75,11 +75,11 @@ Route::prefix('admin-api')
 
             Route::resource('rule', C\RuleController::class);
 
-            Route::resource('certificate', C\CertificateController::class);
+            Route::resource('certificate', C\LicenseController::class);
 
             Route::resource('company', C\CompanyController::class);
 
-            Route::resource('type', C\TypeController::class);
+            Route::resource('type', C\CategoryController::class);
 
             Route::resource('remind', C\RemindController::class);
         });

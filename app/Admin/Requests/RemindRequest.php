@@ -10,7 +10,7 @@ class RemindRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'field_name' => 'required',
+
         ];
 
         if ($this->isMethod('put')) {
@@ -23,14 +23,14 @@ class RemindRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+
         ];
     }
 
     public function attributes()
     {
         return [
-            'field_name' => '字段名',
+
         ];
     }
 }

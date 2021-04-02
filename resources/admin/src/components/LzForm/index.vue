@@ -192,7 +192,7 @@ export default {
 
     const stayCheckbox = !this.disableStay && (
       <a-tooltip placement="topRight">
-        <span slot="title">表单提交后，留在此页</span>
+        <span slot="title">保存后，留在此页</span>
         <a-checkbox class="stay" vModel={this.stay}>留在此页</a-checkbox>
       </a-tooltip>
     )

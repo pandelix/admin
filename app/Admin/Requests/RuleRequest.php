@@ -10,7 +10,11 @@ class RuleRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'field_name' => 'required',
+            'content' => 'required',
+            'rule_name' => 'required',
+            'simple_name' => 'required',
+            'sort' => 'integer',
+            'status' => 'required|boolean',
         ];
 
         if ($this->isMethod('put')) {
@@ -23,14 +27,11 @@ class RuleRequest extends FormRequest
     public function messages()
     {
         return [
-            //
         ];
     }
 
     public function attributes()
     {
-        return [
-            'field_name' => '字段名',
-        ];
+        return ['sort' => '排序值'];
     }
 }

@@ -9,7 +9,7 @@
       <lz-form-item label="所属公司" required prop="company_id">
         <a-select
           v-model="form.company_id"
-          option-filter-prop="simple_pinyin"
+          option-filter-prop="company_id"
           show-search
         >
           <a-select-option
@@ -24,7 +24,7 @@
       <lz-form-item label="证件类型" required prop="type_id">
         <a-select
           v-model="form.type_id"
-          option-filter-prop="simple_pinyin"
+          option-filter-prop="type_id"
           show-search
         >
           <a-select-option
@@ -111,8 +111,6 @@ export default {
 
       this.companies = data.companies
       this.types = data.types
-
-      !this.editMode && (this.form.company_id = toInt(this.$route.query.company_id, ''))
 
       return data
     },

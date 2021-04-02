@@ -5,6 +5,7 @@ namespace App\Admin\Models;
 
 
 use Illuminate\Support\Str;
+use DateTimeInterface;
 
 
 class DyModel extends \Illuminate\Database\Eloquent\Model
@@ -15,6 +16,11 @@ class DyModel extends \Illuminate\Database\Eloquent\Model
     public function getTable()
     {
         return $this->table ?? Str::snake(class_basename($this));
+    }
+
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 
 }

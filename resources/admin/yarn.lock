@@ -776,6 +776,21 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
+"@babel/runtime-corejs3@^7.11.2":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.12.5.tgz#ffee91da0eb4c6dae080774e94ba606368e414f4"
+  integrity sha512-roGr54CsTmNPPzZoCP1AmDXuBoNao7tnSA83TXTwt+UK5QVyh1DIJnrgYRPWKCF2flqZQXwa7Yr8v7VmLzF0YQ==
+  dependencies:
+    core-js-pure "^3.0.0"
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.11.2":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
+  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.9.2"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
@@ -2569,6 +2584,11 @@ core-js-compat@^3.6.2, core-js-compat@^3.6.4:
   dependencies:
     browserslist "^4.8.5"
     semver "7.0.0"
+
+core-js-pure@^3.0.0:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.8.2.tgz#286f885c0dac1cdcd6d78397392abc25ddeca225"
+  integrity sha512-v6zfIQqL/pzTVAbZvYUozsxNfxcFb6Ks3ZfEbuneJl3FW9Jb8F6vLWB6f+qTmAu72msUdyb84V8d/yBFf7FNnw==
 
 core-js@^2.4.0:
   version "2.6.11"
@@ -8737,6 +8757,19 @@ vuex@^3.1.3:
   version "3.1.3"
   resolved "https://registry.npm.taobao.org/vuex/download/vuex-3.1.3.tgz#f2ad73e3fb73691698b38c93f66e58e267947180"
   integrity sha1-8q1z4/tzaRaYs4yT9m5Y4meUcYA=
+
+wangeditor-antd@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/wangeditor-antd/-/wangeditor-antd-1.0.7.tgz#5da7bfbdef34bfd1462aa33be584b6a2bf192006"
+  integrity sha512-vp/9vZTqbyQSd/1RkmLVdHk2h8BXeAEGPqeJ5WqnoTzOTA15J8RNVKoPLcEETYo69lXiZz6vnSV6vWGqnxxwug==
+
+wangeditor@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/wangeditor/-/wangeditor-4.6.2.tgz#35f39ed795c2fcff2e7c6be08cd64707be9abe8a"
+  integrity sha512-ua0NbMtzKhac9ynxFPtUXILo9G/apSl1is7jCoSRCN9xvVTUQlFnaFw4152YQbnGv8Ap3hfvZn/OGDe9iWFMSw==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    "@babel/runtime-corejs3" "^7.11.2"
 
 warning@^4.0.0:
   version "4.0.3"
